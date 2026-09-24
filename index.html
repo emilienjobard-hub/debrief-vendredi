@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="fr" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#3B6020">
+<meta name="robots" content="noindex,nofollow">
+<title>Débrief du vendredi</title>
+<!-- Débrief du vendredi — formulaire atelier
+     Généré par 05_SOURCE/hebdo/build_hebdo.py le 2026-09-24 — ne pas éditer à la main :
+     les opérations viennent de TERRAIN · TEMPS STANDARD (04_SYNTHESES/2026-09/temps_standard.csv).
+     Aucune donnée ne quitte le téléphone : l'export se fait par partage / téléchargement. -->
+<script>document.documentElement.classList.remove("no-js");</script>
+<script>window.HEBDO_CONFIG = window.HEBDO_CONFIG || null; window.HEBDO_RETOUR = window.HEBDO_RETOUR || null;</script>
+<script src="hebdo-config.js"></script>
+<script src="hebdo-retour.js"></script>
+<style>
+:root{
+  --vert:#6AA738; --vert-ink:#4A7726; --vert-d:#3B6020; --vert-bg:#EEF5E6; --vert-line:#C9DFB3;
+  --ink:#16211A; --ink-2:#4C5A50; --ink-3:#6F7C73;
+  --paper:#FFFFFF; --ground:#F4F7F1; --line:#D8DFD5; --line-2:#E8EDE5;
+  --soleil:#F2B705; --soleil-bg:#FFF6D6; --nuage:#8A9AA8; --nuage-bg:#EEF2F5; --orage:#5B4B8A; --orage-bg:#EFEAF8;
+  --alerte:#A8412A; --alerte-bg:#F8E5E0; --attention:#A96E12; --attention-bg:#FBF0DC;
+  --r:16px;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ground);color:var(--ink);
+  font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;font-size:16px;line-height:1.45;
+  -webkit-font-smoothing:antialiased;min-height:100vh;min-height:100dvh}
+button,input,select,textarea{font:inherit;color:inherit}
+h1,h2,h3{margin:0;line-height:1.15;letter-spacing:-.01em}
+p{margin:0}
+
+/* ---------- barre du haut ---------- */
+.top{position:sticky;top:0;z-index:20;background:var(--vert-d);color:#fff;
+  padding:calc(10px + env(safe-area-inset-top)) 16px 10px}
+.top .row{display:flex;align-items:center;gap:10px;max-width:560px;margin:0 auto}
+.brand{margin-right:auto;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:800;font-size:13px;letter-spacing:.14em;text-transform:uppercase;opacity:.92}
+.brand b{color:#CDE8B2}
+.wk{font-size:12.5px;font-weight:700;background:rgba(255,255,255,.14);
+  padding:4px 10px;border-radius:20px;font-variant-numeric:tabular-nums}
+.prog{max-width:560px;margin:10px auto 0;display:flex;gap:4px}
+.prog i{flex:1;height:6px;border-radius:4px;background:rgba(255,255,255,.2);position:relative;overflow:hidden}
+.prog i::after{content:"";position:absolute;inset:0;background:#CDE8B2;transform:scaleX(0);transform-origin:left;transition:transform .45s cubic-bezier(.2,.8,.2,1)}
+.prog i.on::after{transform:scaleX(1)}
+.prog i.cur::after{transform:scaleX(.5);background:#fff}
+
+/* ---------- écrans ---------- */
+main{max-width:560px;margin:0 auto;padding:18px 16px calc(120px + env(safe-area-inset-bottom))}
+.screen{display:none}
+.screen.on{display:block;animation:in .38s cubic-bezier(.2,.8,.2,1)}
+.screen.on.back{animation:inb .38s cubic-bezier(.2,.8,.2,1)}
+@keyframes in{from{opacity:0;transform:translateX(26px)}to{opacity:1;transform:none}}
+@keyframes inb{from{opacity:0;transform:translateX(-26px)}to{opacity:1;transform:none}}
+.kicker{font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--vert-ink)}
+.h{font-size:27px;font-weight:850;margin-top:6px;display:flex;align-items:center;gap:10px}
+.h .e{font-size:34px;display:inline-block;animation:wob 2.4s ease-in-out infinite}
+@keyframes wob{0%,100%{transform:rotate(0)}10%{transform:rotate(-10deg)}20%{transform:rotate(8deg)}30%{transform:rotate(0)}}
+.sub{margin-top:8px;color:var(--ink-2);font-size:15.5px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:16px;margin-top:16px;
+  box-shadow:0 1px 2px rgba(22,33,26,.04)}
+.lab{display:block;font-weight:700;font-size:15px;margin:14px 0 7px}
+.lab:first-child{margin-top:0}
+.lab small{font-weight:500;color:var(--ink-3);font-size:13px}
+.hint{font-size:13px;color:var(--ink-3);margin-top:6px}
+input[type=text],input[type=number],input[type=search],select,textarea{width:100%;min-height:48px;
+  border:1.5px solid var(--line);border-radius:12px;background:#fff;padding:11px 13px;font-size:16px;outline:none;
+  transition:border-color .15s, box-shadow .15s}
+textarea{min-height:84px;resize:vertical;line-height:1.4}
+input:focus,select:focus,textarea:focus{border-color:var(--vert);box-shadow:0 0 0 4px rgba(106,167,56,.18)}
+select{appearance:none;-webkit-appearance:none;padding-right:38px;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9'%3E%3Cpath d='M1 1l6 6 6-6' fill='none' stroke='%234C5A50' stroke-width='2'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 14px center}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.grid2 > div{min-width:0}
+
+/* ---------- puces ---------- */
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1.5px solid var(--line);background:#fff;border-radius:40px;padding:10px 14px;min-height:44px;
+  font-size:15px;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:7px;
+  transition:transform .12s, background .15s, border-color .15s, color .15s}
+.chip:active{transform:scale(.95)}
+.chip[aria-pressed=true]{background:var(--vert-d);border-color:var(--vert-d);color:#fff;box-shadow:0 4px 12px -6px rgba(59,96,32,.7)}
+.chip.big{flex:1 1 calc(50% - 8px);justify-content:center;padding:14px 10px;border-radius:14px}
+
+/* ---------- météo ---------- */
+.meteo{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:4px}
+.mt{border:2px solid var(--line);background:#fff;border-radius:18px;padding:16px 6px 12px;cursor:pointer;
+  display:flex;flex-direction:column;align-items:center;gap:6px;font-weight:700;font-size:14.5px;
+  transition:transform .15s, border-color .2s, background .2s}
+.mt .e{font-size:44px;line-height:1;transition:transform .35s cubic-bezier(.3,1.6,.5,1)}
+.mt:active{transform:scale(.96)}
+.mt[aria-pressed=true] .e{transform:scale(1.22) rotate(-6deg)}
+.mt.s[aria-pressed=true]{border-color:var(--soleil);background:var(--soleil-bg)}
+.mt.n[aria-pressed=true]{border-color:var(--nuage);background:var(--nuage-bg)}
+.mt.o[aria-pressed=true]{border-color:var(--orage);background:var(--orage-bg)}
+
+/* ---------- chronos ---------- */
+.chrono{position:relative}
+.chrono .num{position:absolute;top:-11px;left:14px;background:var(--vert-d);color:#fff;font-weight:800;font-size:12px;
+  padding:3px 10px;border-radius:20px;letter-spacing:.06em}
+.chrono .del{position:absolute;top:8px;right:8px;border:none;background:none;font-size:13px;color:var(--ink-3);
+  padding:8px;cursor:pointer;text-decoration:underline}
+.unitbox{display:flex;align-items:center;gap:8px}
+.unitbox input{flex:1;min-width:0}
+.unitbox span{font-size:13.5px;color:var(--ink-2);white-space:nowrap;font-weight:600}
+.feel{margin-top:4px}
+.feel input{width:100%;accent-color:var(--vert-d);height:32px}
+.feel .ends{display:flex;justify-content:space-between;font-size:12.5px;color:var(--ink-3);font-weight:600}
+.feel .val{text-align:center;font-weight:800;font-size:15px;margin-top:2px;color:var(--vert-d);min-height:22px}
+.seg{display:flex;border:1.5px solid var(--line);border-radius:12px;overflow:hidden}
+.seg button{flex:1;border:none;background:#fff;padding:11px 6px;min-height:46px;font-weight:700;font-size:14px;cursor:pointer}
+.seg button + button{border-left:1.5px solid var(--line)}
+.seg button[aria-pressed=true]{background:var(--vert-d);color:#fff}
+.addbtn{width:100%;margin-top:14px;border:2px dashed var(--vert-line);background:transparent;color:var(--vert-d);
+  font-weight:800;border-radius:var(--r);padding:14px;cursor:pointer;font-size:15px}
+.warnline{margin-top:10px;font-size:13.5px;color:var(--attention);font-weight:600;display:none}
+.warnline.on{display:block}
+
+/* ---------- divers ---------- */
+.skip{display:block;margin:18px auto 0;border:none;background:none;color:var(--ink-2);font-weight:700;
+  text-decoration:underline;text-underline-offset:3px;padding:10px;cursor:pointer;font-size:15px}
+.secu{margin-top:14px;border:1.5px solid #EDCFC7;background:var(--alerte-bg);border-radius:12px;padding:13px;
+  color:var(--alerte);font-weight:700;font-size:14.5px;display:none}
+.secu.on{display:block;animation:shake .5s}
+@keyframes shake{20%,60%{transform:translateX(-5px)}40%,80%{transform:translateX(5px)}}
+.check{display:flex;gap:11px;align-items:flex-start;margin-top:14px;font-size:14.5px;cursor:pointer}
+.check input{width:24px;height:24px;flex:none;accent-color:var(--vert-d);margin:0}
+.photo{display:flex;align-items:center;gap:12px;margin-top:4px}
+.photo label{border:1.5px solid var(--line);border-radius:12px;padding:11px 14px;font-weight:700;cursor:pointer;background:#fff}
+.photo img{width:64px;height:64px;object-fit:cover;border-radius:10px;border:1px solid var(--line)}
+.photo input{position:absolute;opacity:0;width:1px;height:1px}
+.feedback{background:linear-gradient(135deg,#F2F8EC,#fff);border:1.5px solid var(--vert-line);border-radius:var(--r);
+  padding:15px;margin-top:16px}
+.feedback .t{font-weight:850;color:var(--vert-d);font-size:16px}
+.feedback ul{margin:8px 0 0;padding:0;list-style:none}
+.feedback li{padding:8px 0;border-top:1px solid var(--line-2);font-size:14.5px}
+.feedback li:first-child{border-top:none}
+.feedback li b{color:var(--vert-d)}
+.feedback .who{color:var(--ink-3);font-size:13px}
+.counter{display:flex;align-items:center;gap:14px;margin-top:16px;background:var(--vert-d);color:#fff;border-radius:var(--r);padding:16px}
+.counter .big{font-size:36px;font-weight:900;line-height:1;font-variant-numeric:tabular-nums}
+.counter .l{font-size:13.5px;opacity:.9;line-height:1.35}
+.pill{display:inline-block;background:var(--vert-bg);color:var(--vert-d);font-weight:800;font-size:12.5px;border-radius:20px;padding:3px 10px}
+.pts{background:#CDE8B2;color:var(--vert-d);font-weight:900;border-radius:20px;padding:4px 10px;font-size:12.5px;
+  font-variant-numeric:tabular-nums;display:none;white-space:nowrap}
+.pts.on{display:inline-block}
+.pts.pop{animation:pop .5s cubic-bezier(.3,1.7,.5,1)}
+@keyframes pop{40%{transform:scale(1.15)}}
+.float{position:fixed;z-index:40;font-weight:900;color:var(--vert-d);pointer-events:none;animation:up 1s ease-out forwards;font-size:18px}
+@keyframes up{to{transform:translateY(-60px);opacity:0}}
+
+/* ---------- barre d'action ---------- */
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:25;background:rgba(244,247,241,.94);backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);border-top:1px solid var(--line);padding:12px 16px calc(12px + env(safe-area-inset-bottom))}
+.bar .row{max-width:560px;margin:0 auto;display:flex;gap:10px}
+.btn{border:none;border-radius:14px;min-height:54px;padding:0 18px;font-weight:800;font-size:17px;cursor:pointer;
+  transition:transform .12s, background .15s}
+.btn:active{transform:scale(.97)}
+.btn.go{flex:1;background:var(--vert-d);color:#fff}
+.btn.go:disabled{background:#A9B7A0;cursor:not-allowed}
+.btn.ghost{background:#fff;border:1.5px solid var(--line);color:var(--ink-2);flex:none;width:58px;padding:0}
+.btn.alt{background:#fff;border:1.5px solid var(--vert-d);color:var(--vert-d);width:100%;margin-top:10px}
+
+/* ---------- fin ---------- */
+.trophy{text-align:center;padding-top:12px}
+.trophy .e{font-size:84px;display:inline-block;animation:tro 1.2s cubic-bezier(.3,1.6,.5,1)}
+@keyframes tro{from{transform:scale(0) rotate(-40deg)}to{transform:none}}
+.trophy .score{font-size:58px;font-weight:900;color:var(--vert-d);line-height:1;margin-top:10px;font-variant-numeric:tabular-nums}
+.trophy .score small{font-size:20px}
+.badges{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:14px}
+.badge{background:#fff;border:1.5px solid var(--vert-line);border-radius:14px;padding:9px 12px;font-weight:700;font-size:14px;
+  animation:tro .7s cubic-bezier(.3,1.6,.5,1) both}
+.badge.new{border-color:var(--soleil);background:var(--soleil-bg)}
+.recap{font-size:14px;color:var(--ink-2)}
+.recap div{display:flex;justify-content:space-between;padding:7px 0;border-top:1px solid var(--line-2)}
+.recap div:first-child{border-top:none}
+.recap b{color:var(--ink);font-variant-numeric:tabular-nums}
+.sent{display:none;text-align:center;color:var(--vert-d);font-weight:800;margin-top:12px}
+.sent.on{display:block}
+/* iPhone : un <canvas> ne s'étire pas avec inset:0 → il prenait sa taille en pixels physiques (×3) et Safari élargissait la page */
+canvas#fx{position:fixed;top:0;left:0;width:100vw;height:100vh;pointer-events:none;z-index:50;display:block}
+html{overflow-x:clip}
+.nojs{display:none;margin:24px 16px;padding:18px;border-radius:14px;background:#FBF0DC;border:1px solid #E0C58C;color:#6E4A0A;font-size:16px;line-height:1.5}
+html.no-js .nojs{display:block}
+html.no-js main,html.no-js .bar,html.no-js .prog{display:none}
+.banner{background:var(--attention-bg);border:1px solid #E0C58C;color:#6E4A0A;border-radius:12px;padding:11px 13px;
+  font-size:14px;margin-top:12px;display:none}
+.banner.on{display:block}
+[hidden]{display:none!important}
+.visually-hidden{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+@media (max-width:360px){.h{font-size:23px}.grid2{grid-template-columns:1fr}.meteo .e{font-size:36px}}
+</style>
+</head>
+<body>
+<canvas id="fx"></canvas>
+<header class="top">
+  <div class="row"><span class="brand"><b>Débrief du vendredi</b></span><span class="pts" id="pts" aria-live="polite">0 pts</span><span class="wk" id="wkTag">S—</span></div>
+  <div class="prog" id="prog" aria-hidden="true"></div>
+</header>
+<div class="nojs"><b>Ce téléphone affiche un simple aperçu du fichier.</b><br>Le débrief a besoin d'un vrai navigateur. Ouvre le <b>lien</b> (ou le QR code) dans <b>Safari</b>, pas la pièce jointe.</div>
+
+<main>
+<!-- ====================================================== 0 · ACCUEIL -->
+<section class="screen" data-step="0">
+  <p class="kicker">L'atelier · chaque vendredi</p>
+  <h1 class="h"><span class="e">🏁</span> Le débrief du vendredi</h1>
+  <p class="sub">7 blocs, 6 minutes. Ce que tu dis ici revient <b>lundi</b> sous forme d'actions, pas dans un tiroir.</p>
+
+  <div id="bannerMigr" class="banner"></div>
+  <div id="bannerSent" class="banner"></div>
+
+  <div id="loop"></div>
+
+  <div class="card">
+    <label class="lab" for="prenom">Ton prénom</label>
+    <input id="prenom" type="text" autocomplete="given-name" placeholder="Ex. Kenny" maxlength="40">
+    <label class="check"><input id="anonyme" type="checkbox"> <span>Je préfère répondre <b>en anonyme</b> cette semaine <span class="hint" style="display:block;margin:2px 0 0">On ne pourra pas te répondre personnellement, mais ton avis compte pareil.</span></span></label>
+
+    <span class="lab">Ton métier</span>
+    <div class="chips" id="metiers" role="group" aria-label="Métier"></div>
+
+    <label class="lab" for="semaine">La semaine</label>
+    <select id="semaine"></select>
+  </div>
+</section>
+
+<!-- ====================================================== 1 · MÉTÉO -->
+<section class="screen" data-step="1">
+  <p class="kicker">Bloc 1 / 7 · 10 secondes</p>
+  <h2 class="h"><span class="e">☀️</span> Ta météo de la semaine</h2>
+  <p class="sub">Sans réfléchir : ta semaine, globalement ?</p>
+  <div class="card">
+    <div class="meteo" id="meteo">
+      <button type="button" class="mt s" data-v="soleil" aria-pressed="false"><span class="e">☀️</span>Soleil</button>
+      <button type="button" class="mt n" data-v="nuageux" aria-pressed="false"><span class="e">⛅</span>Nuageux</button>
+      <button type="button" class="mt o" data-v="orage" aria-pressed="false"><span class="e">⛈️</span>Orage</button>
+    </div>
+    <label class="lab" for="meteoMot">Un mot pour la résumer ? <small>facultatif</small></label>
+    <input id="meteoMot" type="text" maxlength="40" placeholder="Ex. « rush », « tranquille », « galère »">
+  </div>
+</section>
+
+<!-- ====================================================== 2 · CHRONOS -->
+<section class="screen" data-step="2">
+  <p class="kicker">Bloc 2 / 7 · 2 minutes</p>
+  <h2 class="h"><span class="e">⏱️</span> Mes chronos</h2>
+  <p class="sub">Jusqu'à 3 opérations faites cette semaine, avec le temps qu'elles t'ont <b>vraiment</b> pris. Pas de bonne ou de mauvaise réponse : c'est le planning qu'on corrige, pas toi.</p>
+  <div id="chronos"></div>
+  <button type="button" class="addbtn" id="addChrono">＋ Ajouter une opération</button>
+  <p class="warnline" id="chronoWarn">Une ligne est incomplète : il manque l'opération ou le temps. Complète-la ou supprime-la.</p>
+</section>
+
+<!-- ====================================================== 3 · IRRITANT -->
+<section class="screen" data-step="3">
+  <p class="kicker">Bloc 3 / 7 · 1 minute</p>
+  <h2 class="h"><span class="e">😤</span> L'irritant de la semaine</h2>
+  <p class="sub">Le truc qui t'a pourri la semaine. Un seul, le pire.</p>
+  <div class="card" id="irrCard">
+    <span class="lab">C'était plutôt…</span>
+    <div class="chips" id="irrCat" role="group" aria-label="Catégorie d'irritant"></div>
+    <label class="lab" for="irrDesc">Raconte en une phrase</label>
+    <textarea id="irrDesc" maxlength="280" placeholder="Ex. « Le rouleau de PVC 900 g est rangé en hauteur, je perds 10 min à chaque fois pour le descendre »"></textarea>
+    <div class="grid2">
+      <div>
+        <label class="lab" for="irrMin">Temps perdu <small>/ sem.</small></label>
+        <div class="unitbox"><input id="irrMin" type="number" inputmode="numeric" min="0" max="2400" placeholder="Ex. 30"><span>min</span></div>
+      </div>
+      <div>
+        <span class="lab">Ça arrive…</span>
+        <select id="irrFreq" aria-label="Fréquence">
+          <option value="">—</option><option value="1 fois">1 fois</option><option value="souvent">Souvent</option><option value="tous les jours">Tous les jours</option>
+        </select>
+      </div>
+    </div>
+    <div class="chips" id="irrQuick" style="margin-top:8px" aria-label="Raccourcis temps perdu"></div>
+    <span class="lab">Une photo ? <small>facultatif</small></span>
+    <div class="photo"><label for="irrPhoto">📷 Prendre une photo</label><input id="irrPhoto" type="file" accept="image/*" capture="environment"><img id="irrPhotoPrev" alt="" hidden><button type="button" class="skip" id="irrPhotoDel" hidden style="margin:0">Retirer</button></div>
+    <label class="lab" for="irrSol">Et toi, tu ferais quoi ? <small>ta solution, même farfelue</small></label>
+    <textarea id="irrSol" maxlength="280" placeholder="Ex. « Un rack bas à côté de la table de coupe »"></textarea>
+    <label class="check"><input id="irrSecu" type="checkbox"> <span>⚠️ C'est un sujet de <b>sécurité</b> ou qui peut toucher un <b>client</b></span></label>
+    <div class="secu" id="secuMsg">N'attends pas vendredi : préviens <span id="secuWho">ton chef d'équipe</span> <u>tout de suite</u>. On le note quand même ici pour le suivi.</div>
+    <label class="check" id="accordRow"><input id="irrAccord" type="checkbox"> <span>OK pour que mon prénom apparaisse sur l'affichage de l'atelier « Tu l'as dit → on l'a fait » quand ce sera réglé</span></label>
+  </div>
+  <button type="button" class="skip" id="irrNone">Rien ne m'a pourri la semaine 🎉</button>
+</section>
+
+<!-- ====================================================== 4 · RETOUCHE -->
+<section class="screen" data-step="4">
+  <p class="kicker">Bloc 4 / 7 · 30 secondes</p>
+  <h2 class="h"><span class="e">🔧</span> Une retouche cette semaine ?</h2>
+  <p class="sub">Une pièce reprise, décousue, ressoudée, recoupée… Ça arrive à tout le monde. On cherche la cause, pas un coupable.</p>
+  <div class="card">
+    <div class="seg" id="retYN"><button type="button" data-v="non" aria-pressed="false">Non 👍</button><button type="button" data-v="oui" aria-pressed="false">Oui</button></div>
+  </div>
+  <div id="retouches"></div>
+  <button type="button" class="addbtn" id="addRet" hidden>＋ Une autre retouche</button>
+</section>
+
+<!-- ====================================================== 5 · ASTUCE -->
+<section class="screen" data-step="5">
+  <p class="kicker">Bloc 5 / 7 · 30 secondes</p>
+  <h2 class="h"><span class="e">💡</span> L'astuce de pro</h2>
+  <p class="sub">Un truc que tu as trouvé pour aller plus vite, faire mieux, ou une idée à tester.</p>
+  <div class="card">
+    <label class="lab" for="astTxt">Ton astuce</label>
+    <textarea id="astTxt" maxlength="280" placeholder="Ex. « Pré-marquer les œillets au gabarit avant couture : plus besoin de reprendre les cotes »"></textarea>
+    <div class="grid2">
+      <div><label class="lab" for="astGain">Gain estimé <small>/ sem.</small></label>
+      <div class="unitbox"><input id="astGain" type="number" inputmode="numeric" min="0" max="2400" placeholder="Ex. 20"><span>min</span></div></div>
+      <div><span class="lab">Déjà en place ?</span>
+      <div class="seg" id="astApp"><button type="button" data-v="oui" aria-pressed="false">Oui</button><button type="button" data-v="non" aria-pressed="false">À tester</button></div></div>
+    </div>
+  </div>
+  <button type="button" class="skip" data-skip="5">Pas d'astuce cette semaine</button>
+</section>
+
+<!-- ====================================================== 6 · CHAPEAU -->
+<section class="screen" data-step="6">
+  <p class="kicker">Bloc 6 / 7 · facultatif</p>
+  <h2 class="h"><span class="e">🎩</span> Coup de chapeau</h2>
+  <p class="sub">Quelqu'un t'a dépanné, a sauvé une affaire, a fait un truc propre ? Dis-le.</p>
+  <div class="card">
+    <label class="lab" for="chapQui">À qui ?</label>
+    <input id="chapQui" type="text" maxlength="40" placeholder="Prénom du collègue">
+    <label class="lab" for="chapPq">Pour quoi ?</label>
+    <input id="chapPq" type="text" maxlength="140" placeholder="Ex. « M'a aidé à décharger le camion de profilés »">
+  </div>
+  <button type="button" class="skip" data-skip="6">Passer</button>
+</section>
+
+<!-- ====================================================== 7 · JOKER -->
+<section class="screen" data-step="7">
+  <p class="kicker">Bloc 7 / 7 · la question de la semaine</p>
+  <h2 class="h"><span class="e">🃏</span> Question joker</h2>
+  <p class="sub" id="jokerQ">—</p>
+  <div class="card" id="jokerBox"></div>
+  <button type="button" class="skip" data-skip="7">Passer</button>
+</section>
+
+<!-- ====================================================== 8 · FIN -->
+<section class="screen" data-step="8">
+  <div class="trophy">
+    <span class="e" id="troE">🏆</span>
+    <div class="score"><span id="scoreN">0</span> <small>pts</small></div>
+    <p class="sub" id="troTxt">Merci ! Débrief bouclé.</p>
+  </div>
+  <div class="badges" id="badges"></div>
+
+  <div class="card">
+    <p class="lab" style="margin-top:0">📤 Dernière étape : envoie ton débrief</p>
+    <p class="hint" style="margin:0 0 4px" id="sendHint">Le bouton ouvre le partage de ton téléphone : choisis la messagerie et envoie à ton référent.</p>
+    <button type="button" class="btn go" style="width:100%;margin-top:8px" id="btnShare">Envoyer à mon référent</button>
+    <button type="button" class="btn alt" id="btnDl">💾 Télécharger les fichiers</button>
+    <p class="sent" id="sentMsg">✅ Envoyé. À lundi pour la suite !</p>
+    <p class="hint" id="fileName"></p>
+  </div>
+
+  <div class="card recap" id="recap"></div>
+  <div id="loopEnd"></div>
+  <button type="button" class="skip" id="btnEdit">✏️ Corriger une réponse</button>
+</section>
+</main>
+
+<nav class="bar" id="bar">
+  <div class="row">
+    <button type="button" class="btn ghost" id="btnBack" aria-label="Retour">←</button>
+    <button type="button" class="btn go" id="btnNext">C'est parti</button>
+  </div>
+</nav>
+
+<script>
+"use strict";
+/* ============================================================ DONNÉES FIGÉES
+   OPS : extrait de TERRAIN · TEMPS STANDARD — libellés, métier et unité uniquement.
+   AUCUN temps standard n'est embarqué : la comparaison se fait au dépouillement. */
+const OPS = [{"operation": "Adapter un produit connu à de nouvelles cotes", "metier": "Bureau d'études", "metier_code": "BE", "unite": "h / produit"}, {"operation": "Chiffrer une affaire", "metier": "Bureau d'études", "metier_code": "BE", "unite": "h / affaire"}, {"operation": "Concevoir un accessoire nouveau", "metier": "Bureau d'études", "metier_code": "BE", "unite": "h / accessoire"}, {"operation": "Exploiter une prise de cote", "metier": "Bureau d'études", "metier_code": "BE", "unite": "h / affaire"}, {"operation": "Modéliser un produit entièrement nouveau", "metier": "Bureau d'études", "metier_code": "BE", "unite": "h / produit"}, {"operation": "Préparer le fichier de découpe et le placement", "metier": "Bureau d'études", "metier_code": "BE", "unite": "h / produit"}, {"operation": "Reprendre un dossier après retour atelier ou chantier", "metier": "Bureau d'études", "metier_code": "BE", "unite": "h / reprise"}, {"operation": "Réaliser un développé / une mise à plat", "metier": "Bureau d'études", "metier_code": "BE", "unite": "h / produit"}, {"operation": "Écrire ou mettre à jour une gamme", "metier": "Bureau d'études", "metier_code": "BE", "unite": "h / produit"}, {"operation": "1 m de bande d'étanchéité posée", "metier": "Couture", "metier_code": "COU", "unite": "min / m"}, {"operation": "1 m de couture double ou surpiqûre", "metier": "Couture", "metier_code": "COU", "unite": "min / m"}, {"operation": "1 m de couture droite simple", "metier": "Couture", "metier_code": "COU", "unite": "min / m"}, {"operation": "Assembler un angle ou un coin 3D", "metier": "Couture", "metier_code": "COU", "unite": "min / unité"}, {"operation": "Changer de configuration machine (fil, aiguille, pied)", "metier": "Couture", "metier_code": "COU", "unite": "min"}, {"operation": "Monter une fermeture à glissière", "metier": "Couture", "metier_code": "COU", "unite": "min / unité"}, {"operation": "Poser un hublot", "metier": "Couture", "metier_code": "COU", "unite": "min / unité"}, {"operation": "Poser un œillet, une sangle ou une poignée", "metier": "Couture", "metier_code": "COU", "unite": "min / unité"}, {"operation": "Reprendre une couture ratée", "metier": "Couture", "metier_code": "COU", "unite": "min / reprise"}, {"operation": "Charger ou changer un rouleau", "metier": "Découpe", "metier_code": "DEC", "unite": "min"}, {"operation": "Découper 1 m de contour simple", "metier": "Découpe", "metier_code": "DEC", "unite": "min / m"}, {"operation": "Découper un petit renfort ou une pièce d'accessoire", "metier": "Découpe", "metier_code": "DEC", "unite": "min / pièce"}, {"operation": "Découper une pièce à géométrie complexe", "metier": "Découpe", "metier_code": "DEC", "unite": "min / pièce"}, {"operation": "Assembler un angle ou une équerre", "metier": "Montage alu", "metier_code": "ALU", "unite": "min / unité"}, {"operation": "Couper et préparer un profilé", "metier": "Montage alu", "metier_code": "ALU", "unite": "min / unité"}, {"operation": "Démonter et remettre en état après chantier", "metier": "Montage alu", "metier_code": "ALU", "unite": "h / ensemble"}, {"operation": "Emballer et préparer l'expédition", "metier": "Montage alu", "metier_code": "ALU", "unite": "h / ensemble"}, {"operation": "Engager 1 m de toile dans une rainure", "metier": "Montage alu", "metier_code": "ALU", "unite": "min / m"}, {"operation": "Monter un ensemble sur site", "metier": "Montage alu", "metier_code": "ALU", "unite": "h / ensemble"}, {"operation": "Poser un accessoire sur ossature", "metier": "Montage alu", "metier_code": "ALU", "unite": "min / unité"}, {"operation": "Pré-monter un ensemble à blanc en atelier", "metier": "Montage alu", "metier_code": "ALU", "unite": "h / ensemble"}, {"operation": "1 m de soudure droite", "metier": "Soudure HF", "metier_code": "HF", "unite": "min / m"}, {"operation": "Changer d'électrode", "metier": "Soudure HF", "metier_code": "HF", "unite": "min"}, {"operation": "Reprendre une soudure défectueuse", "metier": "Soudure HF", "metier_code": "HF", "unite": "min / reprise"}, {"operation": "Régler sur une matière nouvelle (essais compris)", "metier": "Soudure HF", "metier_code": "HF", "unite": "min"}, {"operation": "Souder un accessoire (manchon, gaine, poche)", "metier": "Soudure HF", "metier_code": "HF", "unite": "min / unité"}, {"operation": "Souder un renfort ou une pastille", "metier": "Soudure HF", "metier_code": "HF", "unite": "min / unité"}, {"operation": "Une soudure d'angle ou de raccord", "metier": "Soudure HF", "metier_code": "HF", "unite": "min / unité"}];
+const SCHEMA = "daedalus-hebdo/1.0";
+const DRAFT_V = 1;
+const METIERS = [
+  {code:"DEC", nom:"Découpe", e:"✂️"}, {code:"COU", nom:"Couture", e:"🧵"},
+  {code:"HF", nom:"Soudure HF", e:"⚡"}, {code:"ALU", nom:"Montage alu", e:"🔩"},
+  {code:"BE", nom:"Bureau d'études", e:"📐"}
+];
+const FAMILLES = [
+  {v:"SAS et pré-SAS gonflables", c:"SAS 🎈"},
+  {v:"Housses / bâches / capotages", c:"Housse ⛺"},
+  {v:"Accessoires et sous-ensembles", c:"Accessoire 🧩"}
+];
+const IRR_CATS = [
+  ["matière","🧶 Matière"],["machine","⚙️ Machine"],["méthode","📋 Méthode"],["info/plan","📄 Info / plan"],
+  ["attente","⏳ Attente"],["rangement","📦 Rangement"],["outil","🔧 Outil"],["autre","❓ Autre"]
+];
+const RET_CAUSES = [
+  ["matière","🧶 Matière"],["découpe","✂️ Découpe"],["couture/soudure","🧵 Couture / soudure"],
+  ["plan/info","📄 Plan / info"],["manipulation","✋ Manip"],["autre","❓ Autre"]
+];
+const FEEL = ["🐇 Bien moins long que d'habitude","Un peu moins long","😐 Comme d'habitude","Un peu plus long","🐢 Bien plus long que d'habitude"];
+const DEFAULT_CONFIG = {
+  joker:{id:"J-DEFAUT", question:"Si tu avais une baguette magique pour ton poste lundi matin, tu changerais quoi en premier ?", type:"texte"},
+  envoi:{email:"", sujet_prefixe:"[DÉBRIEF]"},
+  securite_contact:"ton chef d'équipe"
+};
+const CFG = Object.assign({}, DEFAULT_CONFIG, window.HEBDO_CONFIG || {});
+const RET = window.HEBDO_RETOUR || null;
+
+/* ============================================================ OUTILS */
+const $ = s => document.querySelector(s);
+const $$ = s => Array.from(document.querySelectorAll(s));
+const esc = s => String(s == null ? "" : s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const store = {
+  get(k, d){ try{ const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; }catch(e){ return d; } },
+  set(k, v){ try{ localStorage.setItem(k, JSON.stringify(v)); }catch(e){} },
+  del(k){ try{ localStorage.removeItem(k); }catch(e){} }
+};
+function isoWeek(d){
+  const t = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()));
+  const day = t.getUTCDay() || 7; t.setUTCDate(t.getUTCDate() + 4 - day);
+  const y0 = new Date(Date.UTC(t.getUTCFullYear(), 0, 1));
+  return {y:t.getUTCFullYear(), w:Math.ceil(((t - y0) / 86400000 + 1) / 7)};
+}
+const wkLabel = o => o.y + "-S" + String(o.w).padStart(2, "0");
+function rid(n){ const a = "abcdefghjkmnpqrstuvwxyz23456789"; let s = ""; const r = (window.crypto && crypto.getRandomValues) ? crypto.getRandomValues(new Uint8Array(n)) : Array.from({length:n}, () => Math.random()*255|0); for (const x of r) s += a[x % a.length]; return s; }
+function initials(p){ const parts = String(p||"").trim().split(/[\s\-]+/).filter(Boolean); if(!parts.length) return "XX"; const s = parts.length === 1 ? parts[0].slice(0,2) : parts[0][0] + parts[parts.length-1][0]; return s.normalize("NFD").replace(/[̀-ͯ]/g,"").toUpperCase().replace(/[^A-Z]/g,"X"); }
+function unitInfo(u){
+  u = String(u||"min").trim();
+  const [base, per] = u.split("/").map(s => s && s.trim());
+  const perLbl = {m:"mètres", "unité":"unités", "pièce":"pièces", produit:"produits", affaire:"affaires", ensemble:"ensembles", reprise:"reprises", accessoire:"accessoires"};
+  return {base: base || "min", per: per || null, qLabel: per ? (perLbl[per] || per) : null};
+}
+
+/* ============================================================ ÉTAT + MIGRATION */
+function blank(){
+  const now = new Date(), day = now.getDay();
+  const ref = (day === 1 || day === 2) ? new Date(now.getTime() - 4*86400000) : now; // lundi/mardi → semaine écoulée
+  return {
+    _v:DRAFT_V, uid:rid(10), schema:SCHEMA, demarre_le:new Date().toISOString(), termine_le:null, step:0,
+    semaine:wkLabel(isoWeek(ref)), prenom:"", anonyme:false, metier:"",
+    meteo:{choix:"", mot:""},
+    chronos:[newChrono()],
+    irritant:{rien:false, categorie:"", description:"", minutes_sem:null, frequence:"", photo:"", solution:"", secu_qualite:false, accord_prenom:false},
+    retouche:{reponse:"", items:[]},
+    astuce:{texte:"", gain_min_sem:null, appliquee:""},
+    chapeau:{collegue:"", pourquoi:""},
+    joker:{id:CFG.joker.id, question:CFG.joker.question, reponse:""},
+    envoye:false
+  };
+}
+function newChrono(){ return {affaire:"", operation:"", operation_libre:"", famille:"", quantite:null, temps_min:null, mode:"", ressenti:0}; }
+function newRet(){ return {famille:"", produit:"", affaire:"", cause:"", minutes:null}; }
+function deepFill(tpl, obj){
+  if (obj == null || typeof obj !== "object" || Array.isArray(tpl)) return obj == null ? tpl : obj;
+  const out = Object.assign({}, obj);
+  for (const k in tpl) if (!(k in out) || out[k] === undefined) out[k] = tpl[k];
+  else if (tpl[k] && typeof tpl[k] === "object" && !Array.isArray(tpl[k])) out[k] = deepFill(tpl[k], out[k]);
+  return out;
+}
+function migrate(d){
+  if (!d || typeof d !== "object") return {state:blank(), migrated:false};
+  const before = d._v || 0;
+  let s = deepFill(blank(), d);
+  s.chronos = (Array.isArray(s.chronos) && s.chronos.length ? s.chronos : [newChrono()]).map(c => deepFill(newChrono(), c));
+  s.retouche.items = (Array.isArray(s.retouche.items) ? s.retouche.items : []).map(r => deepFill(newRet(), r));
+  s._v = DRAFT_V;
+  return {state:s, migrated: before !== DRAFT_V};
+}
+let S;
+(function load(){
+  const r = migrate(store.get("debrief-draft", null));
+  S = r.state;
+  if (r.migrated && (store.get("debrief-draft", null))) { const b = $("#bannerMigr"); b.textContent = "Ton brouillon a été mis à jour vers la nouvelle version du débrief. Vérifie tes réponses avant d'envoyer."; b.classList.add("on"); }
+  // semaine déjà envoyée → nouveau débrief si on a changé de semaine
+  const cur = wkLabel(isoWeek(new Date()));
+  if (S.envoye && S.semaine !== cur && !["1","2"].includes(String(new Date().getDay()))) { const keep = {prenom:S.prenom, anonyme:S.anonyme, metier:S.metier}; S = Object.assign(blank(), keep); }
+})();
+const save = () => store.set("debrief-draft", S);
+const hist = store.get("debrief-historique", {});   // {semaine:{uid, points, envoye_le}}
+
+/* ============================================================ POINTS (participation uniquement) */
+function points(){
+  const d = {};
+  d.envoi = 10;
+  d.meteo = S.meteo.choix ? 1 : 0;
+  d.chronos = Math.min(3, validChronos().length) * 3;
+  d.irritant = irrFilled() ? 5 + (S.irritant.solution.trim() ? 3 : 0) : (S.irritant.rien ? 1 : 0);
+  d.retouche = S.retouche.reponse === "oui" ? (validRets().length ? 3 : 0) : (S.retouche.reponse === "non" ? 1 : 0);
+  d.astuce = S.astuce.texte.trim() ? 5 : 0;
+  d.chapeau = (S.chapeau.collegue.trim() && S.chapeau.pourquoi.trim()) ? 2 : 0;
+  d.joker = String(S.joker.reponse||"").trim() ? 2 : 0;
+  const prev = prevWeek(S.semaine); d.regularite = hist[prev] ? 5 : 0;
+  d.resolus = myResolved().length * 20;
+  return {detail:d, total:Object.values(d).reduce((a,b)=>a+b,0)};
+}
+function prevWeek(lbl){ const m = /^(\d{4})-S(\d{2})$/.exec(lbl); if(!m) return ""; let y=+m[1], w=+m[2]-1; if(w<1){ y--; w = isoWeek(new Date(y,11,28)).w; } return y+"-S"+String(w).padStart(2,"0"); }
+function myUids(){ return Object.values(hist).map(h => h.uid).concat([S.uid]); }
+function myResolved(){ if(!RET || !Array.isArray(RET.traites)) return []; const u = myUids(); return RET.traites.filter(t => (t.uid_origine||[]).some(x => u.includes(x)) && /résolu|vérifié/i.test(t.statut||"")); }
+function myRefused(){ if(!RET || !Array.isArray(RET.refuses)) return []; const u = myUids(); return RET.refuses.filter(t => (t.uid_origine||[]).some(x => u.includes(x))); }
+let lastPts = null;
+function refreshPts(ev){
+  const p = points().total - 10; // les 10 pts d'envoi s'affichent à la fin
+  const el = $("#pts"); el.textContent = "⭐ " + Math.max(0,p) + " pts";
+  el.classList.toggle("on", cur > 0 && cur < 8);
+  if (lastPts !== null && p > lastPts) {
+    el.classList.remove("pop"); void el.offsetWidth; el.classList.add("pop");
+    if (ev && ev.clientX) { const f = document.createElement("div"); f.className = "float"; f.textContent = "+" + (p - lastPts); f.style.left = (ev.clientX - 10) + "px"; f.style.top = (ev.clientY - 20) + "px"; document.body.appendChild(f); setTimeout(() => f.remove(), 1000); }
+  }
+  lastPts = p;
+}
+
+/* ============================================================ BOUCLE DE RETOUR (lundi) */
+function loopHTML(compact){
+  let h = "";
+  const mine = myResolved(), ref = myRefused();
+  if (mine.length) h += `<div class="feedback" style="border-color:var(--soleil);background:var(--soleil-bg)"><p class="t">🎉 Ton irritant a été réglé !</p><ul>${mine.map(t => `<li><b>${esc(t.id)}</b> · ${esc(t.titre)}<br><span class="who">${esc(t.reponse||"")}</span></li>`).join("")}</ul><p class="hint">+20 pts pour toi cette semaine.</p></div>`;
+  if (ref.length) h += `<div class="feedback" style="border-color:var(--line)"><p class="t" style="color:var(--ink-2)">📬 Réponse à ton irritant</p><ul>${ref.map(t => `<li><b>${esc(t.id)}</b> · ${esc(t.titre)}<br><span class="who">Pas retenu : ${esc(t.motif||"motif à venir")}</span></li>`).join("")}</ul></div>`;
+  if (RET && Array.isArray(RET.traites) && RET.traites.length) {
+    const items = RET.traites.slice(0, compact ? 3 : 6);
+    h += `<div class="feedback"><p class="t">🗣️ Tu l'as dit → on l'a fait <span class="pill">${esc(RET.semaine||"")}</span></p><ul>${items.map(t => `<li><b>${esc(t.titre)}</b><br><span class="who">${esc(t.reponse||t.statut||"")}${t.prenom ? " · remonté par " + esc(t.prenom) : ""}</span></li>`).join("")}</ul></div>`;
+  }
+  if (RET && RET.minutes_recuperees_total != null) {
+    const m = Math.round(RET.minutes_recuperees_total);
+    h += `<div class="counter"><div class="big">${m >= 600 ? (m/60).toFixed(0) + " h" : m + " min"}</div><div class="l">${m > 0 ? "récupérées par l'équipe depuis le début du débrief" : "récupérées pour l'instant. Le compteur démarre au premier irritant réglé : le tien, peut-être."}${RET.minutes_recuperees_semaine ? `<br><b>+${Math.round(RET.minutes_recuperees_semaine)} min</b> cette semaine` : ""}</div></div>`;
+  }
+  return h;
+}
+
+/* ============================================================ RENDU : ACCUEIL */
+function renderHome(){
+  $("#prenom").value = S.prenom; $("#anonyme").checked = S.anonyme; $("#prenom").disabled = S.anonyme;
+  $("#metiers").innerHTML = METIERS.map(m => `<button type="button" class="chip big" data-v="${m.code}" aria-pressed="${S.metier===m.code}">${m.e} ${esc(m.nom)}</button>`).join("");
+  const now = new Date(), a = isoWeek(now), b = isoWeek(new Date(now.getTime() - 7*86400000));
+  const opts = [wkLabel(a), wkLabel(b)]; if (!opts.includes(S.semaine)) opts.push(S.semaine);
+  $("#semaine").innerHTML = opts.map(o => `<option value="${o}" ${o===S.semaine?"selected":""}>${o}${o===wkLabel(a)?" (cette semaine)":o===wkLabel(b)?" (semaine dernière)":""}</option>`).join("");
+  $("#loop").innerHTML = loopHTML(true);
+  const done = hist[S.semaine];
+  const bs = $("#bannerSent");
+  if (done && !S.envoye) { bs.textContent = "Tu as déjà envoyé un débrief pour " + S.semaine + ". Si tu renvoies, c'est le plus récent qui compte."; bs.classList.add("on"); } else bs.classList.remove("on");
+}
+$("#prenom").addEventListener("input", e => { S.prenom = e.target.value; save(); upd(); });
+$("#anonyme").addEventListener("change", e => { S.anonyme = e.target.checked; $("#prenom").disabled = S.anonyme; if (S.anonyme) S.irritant.accord_prenom = false; save(); upd(); });
+$("#metiers").addEventListener("click", e => { const b = e.target.closest(".chip"); if(!b) return; S.metier = b.dataset.v; $$("#metiers .chip").forEach(x => x.setAttribute("aria-pressed", x===b)); save(); upd(); renderChronos(); });
+$("#semaine").addEventListener("change", e => { S.semaine = e.target.value; save(); upd(); });
+
+/* ============================================================ MÉTÉO */
+$("#meteo").addEventListener("click", e => { const b = e.target.closest(".mt"); if(!b) return; S.meteo.choix = b.dataset.v; $$("#meteo .mt").forEach(x => x.setAttribute("aria-pressed", x===b)); save(); upd(e); if (b.dataset.v === "soleil") burst(e.clientX, e.clientY, 18, ["#F2B705","#FFD84D","#6AA738"]); });
+$("#meteoMot").addEventListener("input", e => { S.meteo.mot = e.target.value; save(); });
+
+/* ============================================================ CHRONOS */
+function opsOptions(sel){
+  const mine = OPS.filter(o => o.metier_code === S.metier), others = OPS.filter(o => o.metier_code !== S.metier);
+  const grp = {}; others.forEach(o => (grp[o.metier] = grp[o.metier] || []).push(o));
+  const opt = o => `<option value="${esc(o.operation)}" ${o.operation===sel?"selected":""}>${esc(o.operation)}</option>`;
+  let h = `<option value="">— Choisis l'opération —</option>`;
+  if (mine.length) h += `<optgroup label="Mon métier">${mine.map(opt).join("")}</optgroup>`;
+  for (const g in grp) h += `<optgroup label="${esc(g)}">${grp[g].map(opt).join("")}</optgroup>`;
+  h += `<optgroup label="Pas dans la liste"><option value="__autre" ${sel==="__autre"?"selected":""}>Autre (je précise)</option></optgroup>`;
+  return h;
+}
+function renderChronos(){
+  const box = $("#chronos");
+  box.innerHTML = S.chronos.map((c, i) => {
+    const op = OPS.find(o => o.operation === c.operation), ui = unitInfo(op ? op.unite : "min");
+    const needQ = c.operation === "__autre" || (op && ui.per);
+    return `<div class="card chrono" data-i="${i}">
+      <span class="num">CHRONO ${i+1}</span>
+      ${S.chronos.length > 1 ? `<button type="button" class="del" data-act="del">Supprimer</button>` : ""}
+      <label class="lab" style="margin-top:8px">Opération</label>
+      <select data-f="operation" aria-label="Opération">${opsOptions(c.operation)}</select>
+      ${c.operation === "__autre" ? `<input type="text" data-f="operation_libre" style="margin-top:8px" maxlength="80" placeholder="Laquelle ?" value="${esc(c.operation_libre)}">` : ""}
+      <div class="grid2">
+        <div><label class="lab">N° affaire / OF</label><input type="text" data-f="affaire" maxlength="24" placeholder="Ex. P2026-0142" value="${esc(c.affaire)}" autocapitalize="characters"></div>
+        <div><label class="lab">Famille</label><select data-f="famille"><option value="">—</option>${FAMILLES.map(f => `<option value="${esc(f.v)}" ${f.v===c.famille?"selected":""}>${f.c}</option>`).join("")}</select></div>
+      </div>
+      <div class="grid2">
+        ${needQ ? `<div><label class="lab">Quantité</label><div class="unitbox"><input type="number" inputmode="decimal" min="0" step="any" data-f="quantite" value="${c.quantite ?? ""}" placeholder="Ex. 12"><span>${esc(ui.qLabel || "unités")}</span></div></div>` : ""}
+        <div ${needQ ? "" : 'style="grid-column:1/-1"'}><label class="lab">Temps réel total</label><div class="unitbox"><input type="number" inputmode="decimal" min="0" step="any" data-f="temps_min" value="${c.temps_min ?? ""}" placeholder="Ex. 45"><span>min</span></div></div>
+      </div>
+      ${op && ui.base === "h" ? `<p class="hint">En minutes : 1 h 30 = 90 min.</p>` : ""}
+      <label class="lab">Ce temps, tu l'as…</label>
+      <div class="seg" data-f="mode"><button type="button" data-v="chrono" aria-pressed="${c.mode==="chrono"}">⏱ Chronométré</button><button type="button" data-v="tete" aria-pressed="${c.mode==="tete"}">🤔 De tête</button></div>
+      <label class="lab">Ça a pris plus ou moins que d'habitude ?</label>
+      <div class="feel"><input type="range" min="-2" max="2" step="1" data-f="ressenti" value="${c.ressenti}" aria-label="Ressenti"><div class="ends"><span>🐇 moins</span><span>🐢 plus</span></div><div class="val">${FEEL[c.ressenti+2]}</div></div>
+    </div>`;
+  }).join("");
+  $("#addChrono").hidden = S.chronos.length >= 3;
+  upd();
+}
+$("#chronos").addEventListener("input", e => {
+  const card = e.target.closest(".chrono"); if(!card) return; const c = S.chronos[+card.dataset.i], f = e.target.dataset.f; if(!f) return;
+  if (f === "quantite" || f === "temps_min") c[f] = e.target.value === "" ? null : Math.max(0, parseFloat(String(e.target.value).replace(",", ".")));
+  else if (f === "ressenti") { c.ressenti = +e.target.value; card.querySelector(".val").textContent = FEEL[c.ressenti+2]; }
+  else c[f] = e.target.value;
+  save(); upd(e);
+});
+$("#chronos").addEventListener("change", e => { const f = e.target.dataset.f; if (f === "operation") { const c = S.chronos[+e.target.closest(".chrono").dataset.i]; c.operation = e.target.value; const op = OPS.find(o => o.operation === c.operation); if (op && !unitInfo(op.unite).per) c.quantite = 1; save(); renderChronos(); } });
+$("#chronos").addEventListener("click", e => {
+  const card = e.target.closest(".chrono"); if(!card) return; const i = +card.dataset.i;
+  if (e.target.dataset.act === "del") { S.chronos.splice(i, 1); save(); renderChronos(); return; }
+  const b = e.target.closest(".seg button"); if (b) { S.chronos[i].mode = b.dataset.v; b.parentNode.querySelectorAll("button").forEach(x => x.setAttribute("aria-pressed", x===b)); save(); upd(e); }
+});
+$("#addChrono").addEventListener("click", () => { if (S.chronos.length < 3) { S.chronos.push(newChrono()); save(); renderChronos(); setTimeout(() => $("#chronos").lastElementChild.scrollIntoView({behavior:"smooth", block:"start"}), 50); } });
+const chronoUsed = c => c.operation || c.temps_min != null || c.affaire || c.quantite != null && c.quantite !== 1;
+const chronoOk = c => c.operation && (c.operation !== "__autre" || c.operation_libre.trim()) && c.temps_min > 0 && (() => { const op = OPS.find(o => o.operation === c.operation); return !(c.operation === "__autre" || (op && unitInfo(op.unite).per)) || c.quantite > 0; })();
+const validChronos = () => S.chronos.filter(chronoOk);
+const badChronos = () => S.chronos.filter(c => chronoUsed(c) && !chronoOk(c));
+
+/* ============================================================ IRRITANT */
+function renderIrr(){
+  const I = S.irritant;
+  $("#irrCat").innerHTML = IRR_CATS.map(([v,l]) => `<button type="button" class="chip" data-v="${v}" aria-pressed="${I.categorie===v}">${l}</button>`).join("");
+  $("#irrQuick").innerHTML = [5,15,30,60,120].map(m => `<button type="button" class="chip" data-v="${m}" aria-pressed="${I.minutes_sem===m}">${m < 60 ? m + " min" : (m/60) + " h"}</button>`).join("");
+  $("#irrDesc").value = I.description; $("#irrMin").value = I.minutes_sem ?? ""; $("#irrFreq").value = I.frequence; $("#irrSol").value = I.solution;
+  $("#irrSecu").checked = I.secu_qualite; $("#secuMsg").classList.toggle("on", I.secu_qualite); $("#secuWho").textContent = CFG.securite_contact;
+  $("#irrAccord").checked = I.accord_prenom; $("#accordRow").style.display = S.anonyme ? "none" : "";
+  const p = $("#irrPhotoPrev"); if (I.photo) { p.src = I.photo; p.hidden = false; $("#irrPhotoDel").hidden = false; } else { p.hidden = true; $("#irrPhotoDel").hidden = true; }
+  $("#irrCard").style.opacity = I.rien ? .45 : 1;
+  $("#irrNone").textContent = I.rien ? "✔ Rien cette semaine — annuler" : "Rien ne m'a pourri la semaine 🎉";
+}
+$("#irrCat").addEventListener("click", e => { const b = e.target.closest(".chip"); if(!b) return; S.irritant.categorie = b.dataset.v; S.irritant.rien = false; $$("#irrCat .chip").forEach(x => x.setAttribute("aria-pressed", x===b)); $("#irrCard").style.opacity = 1; save(); upd(e); });
+$("#irrQuick").addEventListener("click", e => { const b = e.target.closest(".chip"); if(!b) return; S.irritant.minutes_sem = +b.dataset.v; $("#irrMin").value = b.dataset.v; $$("#irrQuick .chip").forEach(x => x.setAttribute("aria-pressed", x===b)); save(); upd(e); });
+[["#irrDesc","description"],["#irrSol","solution"],["#irrFreq","frequence"]].forEach(([s,k]) => $(s).addEventListener("input", e => { S.irritant[k] = e.target.value; if (e.target.value) S.irritant.rien = false; save(); upd(e); }));
+$("#irrMin").addEventListener("input", e => { S.irritant.minutes_sem = e.target.value === "" ? null : Math.max(0, +e.target.value); $$("#irrQuick .chip").forEach(x => x.setAttribute("aria-pressed", +x.dataset.v === S.irritant.minutes_sem)); save(); upd(e); });
+$("#irrSecu").addEventListener("change", e => { S.irritant.secu_qualite = e.target.checked; $("#secuMsg").classList.toggle("on", e.target.checked); save(); });
+$("#irrAccord").addEventListener("change", e => { S.irritant.accord_prenom = e.target.checked; save(); });
+$("#irrNone").addEventListener("click", e => { S.irritant.rien = !S.irritant.rien; save(); renderIrr(); upd(e); if (S.irritant.rien) go(cur + 1); });
+$("#irrPhoto").addEventListener("change", e => {
+  const f = e.target.files && e.target.files[0]; if (!f) return;
+  const img = new Image(), url = URL.createObjectURL(f);
+  img.onload = () => { const M = 1024, k = Math.min(1, M / Math.max(img.width, img.height)); const c = document.createElement("canvas"); c.width = Math.round(img.width*k); c.height = Math.round(img.height*k); c.getContext("2d").drawImage(img, 0, 0, c.width, c.height); S.irritant.photo = c.toDataURL("image/jpeg", .7); URL.revokeObjectURL(url); save(); renderIrr(); };
+  img.onerror = () => URL.revokeObjectURL(url);
+  img.src = url;
+});
+$("#irrPhotoDel").addEventListener("click", () => { S.irritant.photo = ""; $("#irrPhoto").value = ""; save(); renderIrr(); });
+const irrFilled = () => !S.irritant.rien && S.irritant.description.trim().length > 2;
+
+/* ============================================================ RETOUCHE */
+function renderRet(){
+  const R = S.retouche;
+  $$("#retYN button").forEach(b => b.setAttribute("aria-pressed", R.reponse === b.dataset.v));
+  if (R.reponse === "oui" && !R.items.length) R.items.push(newRet());
+  $("#retouches").innerHTML = R.reponse !== "oui" ? "" : R.items.map((r, i) => `<div class="card chrono" data-i="${i}">
+    <span class="num">RETOUCHE ${i+1}</span>
+    ${R.items.length > 1 ? `<button type="button" class="del" data-act="del">Supprimer</button>` : ""}
+    <label class="lab" style="margin-top:8px">Sur quel produit ?</label>
+    <div class="grid2"><div><select data-f="famille" aria-label="Famille"><option value="">Famille —</option>${FAMILLES.map(f => `<option value="${esc(f.v)}" ${f.v===r.famille?"selected":""}>${f.c}</option>`).join("")}</select></div>
+    <div><input type="text" data-f="affaire" maxlength="24" placeholder="N° affaire / OF" value="${esc(r.affaire)}" aria-label="N° affaire"></div></div>
+    <input type="text" data-f="produit" maxlength="80" style="margin-top:10px" placeholder="Ex. manchon Ø300, panneau latéral…" value="${esc(r.produit)}" aria-label="Produit">
+    <span class="lab">La cause, à ton avis</span>
+    <div class="chips" data-f="cause">${RET_CAUSES.map(([v,l]) => `<button type="button" class="chip" data-v="${v}" aria-pressed="${r.cause===v}">${l}</button>`).join("")}</div>
+    <label class="lab">Temps de reprise</label>
+    <div class="unitbox"><input type="number" inputmode="numeric" min="0" data-f="minutes" value="${r.minutes ?? ""}" placeholder="Ex. 20"><span>min</span></div>
+  </div>`).join("");
+  $("#addRet").hidden = !(R.reponse === "oui" && R.items.length < 3);
+}
+$("#retYN").addEventListener("click", e => { const b = e.target.closest("button"); if(!b) return; S.retouche.reponse = b.dataset.v; if (b.dataset.v === "non") S.retouche.items = []; save(); renderRet(); upd(e); if (b.dataset.v === "non") setTimeout(() => go(cur + 1), 350); });
+$("#retouches").addEventListener("input", e => { const card = e.target.closest(".chrono"), f = e.target.dataset.f; if(!card || !f) return; const r = S.retouche.items[+card.dataset.i]; r[f] = f === "minutes" ? (e.target.value === "" ? null : Math.max(0, +e.target.value)) : e.target.value; save(); upd(e); });
+$("#retouches").addEventListener("click", e => { const card = e.target.closest(".chrono"); if(!card) return; const i = +card.dataset.i;
+  if (e.target.dataset.act === "del") { S.retouche.items.splice(i, 1); save(); renderRet(); return; }
+  const b = e.target.closest(".chip"); if (b) { S.retouche.items[i].cause = b.dataset.v; b.parentNode.querySelectorAll(".chip").forEach(x => x.setAttribute("aria-pressed", x===b)); save(); upd(e); } });
+$("#addRet").addEventListener("click", () => { S.retouche.items.push(newRet()); save(); renderRet(); });
+const validRets = () => S.retouche.items.filter(r => r.cause || r.minutes > 0 || r.produit.trim());
+
+/* ============================================================ ASTUCE / CHAPEAU / JOKER */
+function renderMisc(){
+  $("#astTxt").value = S.astuce.texte; $("#astGain").value = S.astuce.gain_min_sem ?? "";
+  $$("#astApp button").forEach(b => b.setAttribute("aria-pressed", S.astuce.appliquee === b.dataset.v));
+  $("#chapQui").value = S.chapeau.collegue; $("#chapPq").value = S.chapeau.pourquoi;
+  const J = CFG.joker; $("#jokerQ").textContent = J.question;
+  if (S.joker.id !== J.id) { S.joker = {id:J.id, question:J.question, reponse:""}; }
+  let h = "";
+  if (J.type === "choix" && Array.isArray(J.options)) h = `<div class="chips" id="jkC">${J.options.map(o => `<button type="button" class="chip big" data-v="${esc(o)}" aria-pressed="${S.joker.reponse===o}">${esc(o)}</button>`).join("")}</div>`;
+  else if (J.type === "echelle") { const lo = (J.bornes||["Pas du tout","Complètement"]); h = `<div class="chips" id="jkC">${[1,2,3,4,5].map(n => `<button type="button" class="chip" style="flex:1;justify-content:center" data-v="${n}" aria-pressed="${String(S.joker.reponse)===String(n)}">${n}</button>`).join("")}</div><div class="feel"><div class="ends" style="margin-top:6px"><span>${esc(lo[0])}</span><span>${esc(lo[1])}</span></div></div>`; }
+  else h = `<textarea id="jkT" maxlength="280" placeholder="Ta réponse, en quelques mots">${esc(S.joker.reponse)}</textarea>`;
+  if (J.type === "choix" && J.commentaire) h += `<input id="jkT" type="text" style="margin-top:10px" maxlength="140" placeholder="Un mot de plus ?" value="${esc(S.joker.commentaire||"")}">`;
+  $("#jokerBox").innerHTML = h;
+}
+$("#astTxt").addEventListener("input", e => { S.astuce.texte = e.target.value; save(); upd(e); });
+$("#astGain").addEventListener("input", e => { S.astuce.gain_min_sem = e.target.value === "" ? null : Math.max(0, +e.target.value); save(); });
+$("#astApp").addEventListener("click", e => { const b = e.target.closest("button"); if(!b) return; S.astuce.appliquee = b.dataset.v; $$("#astApp button").forEach(x => x.setAttribute("aria-pressed", x===b)); save(); });
+$("#chapQui").addEventListener("input", e => { S.chapeau.collegue = e.target.value; save(); upd(e); });
+$("#chapPq").addEventListener("input", e => { S.chapeau.pourquoi = e.target.value; save(); upd(e); });
+$("#jokerBox").addEventListener("click", e => { const b = e.target.closest(".chip"); if(!b) return; S.joker.reponse = b.dataset.v; $$("#jokerBox .chip").forEach(x => x.setAttribute("aria-pressed", x===b)); save(); upd(e); });
+$("#jokerBox").addEventListener("input", e => { if (e.target.id !== "jkT") return; if (CFG.joker.type === "choix") S.joker.commentaire = e.target.value; else S.joker.reponse = e.target.value; save(); upd(e); });
+$$("[data-skip]").forEach(b => b.addEventListener("click", () => go(cur + 1)));
+
+/* ============================================================ NAVIGATION */
+const STEPS = 9; let cur = 0;
+$("#prog").innerHTML = Array.from({length:7}, () => "<i></i>").join("");
+function canNext(){
+  if (cur === 0) return !!S.metier && (S.anonyme || S.prenom.trim().length > 0);
+  if (cur === 2) return badChronos().length === 0;
+  return true;
+}
+function upd(ev){
+  const n = $("#btnNext"), labels = {0:"C'est parti →", 7:"Terminer 🏁", 8:""};
+  n.textContent = labels[cur] ?? "Suivant →";
+  n.disabled = !canNext();
+  $("#btnBack").style.visibility = cur === 0 ? "hidden" : "visible";
+  $("#bar").style.display = cur === 8 ? "none" : "";
+  $("#chronoWarn").classList.toggle("on", cur === 2 && badChronos().length > 0);
+  $("#wkTag").textContent = S.semaine.replace(/^\d{4}-/, "");
+  $$("#prog i").forEach((el, i) => { el.className = (i+1 < cur || cur === 8) ? "on" : (i+1 === cur ? "cur" : ""); });
+  refreshPts(ev);
+}
+function go(n, back){
+  n = Math.max(0, Math.min(STEPS-1, n));
+  if (n === 8 && !S.termine_le) S.termine_le = new Date().toISOString();
+  cur = n; S.step = n; save();
+  $$(".screen").forEach(s => { s.classList.remove("on","back"); if (+s.dataset.step === n) { s.classList.add("on"); if (back) s.classList.add("back"); } });
+  if (n === 0) renderHome(); if (n === 2) renderChronos(); if (n === 3) renderIrr(); if (n === 4) renderRet(); if (n >= 5 && n <= 7) renderMisc(); if (n === 8) renderEnd();
+  window.scrollTo({top:0, behavior:"instant" in window ? "instant" : "auto"});
+  upd();
+}
+$("#btnNext").addEventListener("click", () => { if (canNext()) go(cur + 1); });
+$("#btnBack").addEventListener("click", () => go(cur - 1, true));
+$("#btnEdit").addEventListener("click", () => go(1, true));
+
+/* ============================================================ EXPORT */
+function fileBase(){ const who = S.anonyme ? "ANON-" + S.uid.slice(0,3).toUpperCase() : initials(S.prenom); return `HEBDO_${S.semaine}_${S.metier || "XX"}_${who}`; }
+function payload(){
+  const met = METIERS.find(m => m.code === S.metier) || {nom:""};
+  const opOf = c => OPS.find(o => o.operation === c.operation);
+  return {
+    schema:SCHEMA, perimetre:"atelier", rituel:"Débrief du vendredi",
+    uid:S.uid, id_reponse:null /* HEB-AAAA-Sxx-MET-nn attribué au dépouillement */,
+    semaine_iso:S.semaine, date_saisie:new Date().toISOString().slice(0,10),
+    session:{demarre_le:S.demarre_le, termine_le:S.termine_le || new Date().toISOString(), duree_min: Math.round((new Date(S.termine_le || Date.now()) - new Date(S.demarre_le)) / 6000) / 10},
+    metier:{code:S.metier, nom:met.nom},
+    repondant: S.anonyme ? "anonyme" : S.prenom.trim(),
+    meteo:{...S.meteo},
+    chronos: validChronos().map(c => { const op = opOf(c), ui = unitInfo(op ? op.unite : ""); return {
+      affaire:c.affaire.trim().toUpperCase(), famille:c.famille,
+      operation: c.operation === "__autre" ? "" : c.operation, operation_libre: c.operation === "__autre" ? c.operation_libre.trim() : "",
+      metier_operation: op ? op.metier_code : "", unite_standard: op ? op.unite : "",
+      quantite: ui.per || c.operation === "__autre" ? c.quantite : 1, temps_reel_min:c.temps_min, mode_saisie:c.mode || "non précisé", ressenti:c.ressenti}; }),
+    irritant: irrFilled() ? {...S.irritant, photo: undefined, photo_jpeg: S.irritant.photo || "", accord_prenom: S.anonyme ? false : S.irritant.accord_prenom} : {rien:S.irritant.rien},
+    retouche:{reponse:S.retouche.reponse || "non renseigné", items: S.retouche.reponse === "oui" ? validRets() : []},
+    astuce: S.astuce.texte.trim() ? {...S.astuce} : null,
+    chapeau: S.chapeau.collegue.trim() ? {...S.chapeau} : null,
+    joker:{...S.joker},
+    points: points()
+  };
+}
+function csvOf(p){
+  const H = ["uid","semaine_iso","date_saisie","metier","repondant","bloc","rang","famille","affaire","operation","quantite","unite_standard","temps_min","mode_saisie","ressenti","categorie","texte","minutes_sem","frequence","solution","secu_qualite","accord_prenom","cause","valeur"];
+  const rows = [], base = {uid:p.uid, semaine_iso:p.semaine_iso, date_saisie:p.date_saisie, metier:p.metier.code, repondant:p.repondant};
+  const add = o => rows.push(Object.assign({}, base, o));
+  add({bloc:"METEO", rang:1, valeur:p.meteo.choix, texte:p.meteo.mot});
+  p.chronos.forEach((c, i) => add({bloc:"CHRONO", rang:i+1, famille:c.famille, affaire:c.affaire, operation:c.operation || ("AUTRE: " + c.operation_libre), quantite:c.quantite, unite_standard:c.unite_standard, temps_min:c.temps_reel_min, mode_saisie:c.mode_saisie, ressenti:c.ressenti}));
+  if (p.irritant && !p.irritant.rien) add({bloc:"IRRITANT", rang:1, categorie:p.irritant.categorie, texte:p.irritant.description, minutes_sem:p.irritant.minutes_sem, frequence:p.irritant.frequence, solution:p.irritant.solution, secu_qualite:p.irritant.secu_qualite ? "oui" : "non", accord_prenom:p.irritant.accord_prenom ? "oui" : "non", valeur:p.irritant.photo_jpeg ? "photo jointe (JSON)" : ""});
+  add({bloc:"RETOUCHE", rang:0, valeur:p.retouche.reponse});
+  p.retouche.items.forEach((r, i) => add({bloc:"RETOUCHE", rang:i+1, famille:r.famille, affaire:r.affaire, texte:r.produit, cause:r.cause, temps_min:r.minutes}));
+  if (p.astuce) add({bloc:"ASTUCE", rang:1, texte:p.astuce.texte, minutes_sem:p.astuce.gain_min_sem, valeur:p.astuce.appliquee});
+  if (p.chapeau) add({bloc:"CHAPEAU", rang:1, texte:p.chapeau.pourquoi, valeur:p.chapeau.collegue});
+  add({bloc:"JOKER", rang:1, categorie:p.joker.id, texte:p.joker.question, valeur:(p.joker.reponse || "") + (p.joker.commentaire ? " — " + p.joker.commentaire : "")});
+  const cell = v => { v = v == null ? "" : String(v); return /[;"\n\r]/.test(v) ? '"' + v.replace(/"/g, '""') + '"' : v; };
+  return "﻿" + H.join(";") + "\r\n" + rows.map(r => H.map(h => cell(r[h])).join(";")).join("\r\n") + "\r\n";
+}
+function files(){
+  const p = payload(), b = fileBase();
+  return [new File([JSON.stringify(p, null, 1)], b + ".json", {type:"application/json"}), new File([csvOf(p)], b + ".csv", {type:"text/csv"})];
+}
+function markSent(){
+  S.envoye = true; save();
+  hist[S.semaine] = {uid:S.uid, points:points().total, envoye_le:new Date().toISOString()}; store.set("debrief-historique", hist);
+  $("#sentMsg").classList.add("on");
+}
+function download(f){ const a = document.createElement("a"); a.href = URL.createObjectURL(f); a.download = f.name; document.body.appendChild(a); a.click(); setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 1500); }
+$("#btnShare").addEventListener("click", async () => {
+  const fs = files(), subject = `${CFG.envoi.sujet_prefixe} ${fileBase()}`;
+  try {
+    if (navigator.canShare && navigator.canShare({files:fs})) { await navigator.share({files:fs, title:subject, text:subject}); markSent(); return; }
+  } catch (e) { if (e && e.name === "AbortError") return; }
+  fs.forEach(download);
+  const to = CFG.envoi.email || "";
+  setTimeout(() => { location.href = `mailto:${encodeURIComponent(to)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent("Mon débrief est en pièce jointe (les 2 fichiers " + fileBase() + " qui viennent d'être téléchargés).")}`; }, 600);
+  markSent();
+});
+$("#btnDl").addEventListener("click", () => { files().forEach(download); markSent(); });
+
+/* ============================================================ FIN */
+function badges(){
+  const B = [], H = Object.keys(hist).filter(k => k !== S.semaine).sort();
+  if (!H.length) B.push(["🐣","Premier débrief", true]);
+  let streak = 1, w = S.semaine; while (hist[prevWeek(w)]) { streak++; w = prevWeek(w); }
+  if (streak >= 3) B.push(["🔥", streak + " semaines d'affilée", streak === 3]);
+  if (irrFilled() && S.irritant.solution.trim()) B.push(["🛠️","Force de proposition", false]);
+  if (validChronos().length >= 3) B.push(["⏱️","Chrono complet", false]);
+  if (S.astuce.texte.trim()) B.push(["💡","Astucieux", false]);
+  if (S.chapeau.collegue.trim()) B.push(["🎩","Bon collègue", false]);
+  if (S.retouche.reponse === "oui" && validRets().length) B.push(["🔍","Franc-jeu", false]);
+  if (myResolved().length) B.push(["🏅","Irritant terrassé", true]);
+  return B;
+}
+function renderEnd(){
+  const P = points(), p = payload();
+  const mood = {soleil:"☀️", nuageux:"⛅", orage:"⛈️"}[S.meteo.choix] || "🏆";
+  $("#troE").textContent = S.meteo.choix === "orage" ? "💪" : "🏆";
+  $("#troTxt").textContent = S.meteo.choix === "orage" ? "Semaine orageuse, débrief quand même. Respect." : "Merci ! Débrief bouclé en " + (p.session.duree_min < 1 ? "moins d'une" : Math.round(p.session.duree_min)) + " min.";
+  let n = 0; const tgt = P.total, t0 = performance.now();
+  (function roll(t){ n = Math.min(tgt, Math.round(tgt * Math.min(1, (t - t0) / 1100))); $("#scoreN").textContent = n; if (n < tgt) requestAnimationFrame(roll); })(t0);
+  $("#badges").innerHTML = badges().map(([e,l,nw], i) => `<span class="badge ${nw?"new":""}" style="animation-delay:${.25 + i*.12}s">${e} ${esc(l)}</span>`).join("");
+  const d = P.detail, lbl = {envoi:"Débrief envoyé", meteo:"Météo", chronos:"Chronos", irritant:"Irritant", retouche:"Retouche", astuce:"Astuce", chapeau:"Coup de chapeau", joker:"Joker", regularite:"Régularité (sem. dernière)", resolus:"Irritant résolu"};
+  $("#recap").innerHTML = `<p class="lab" style="margin:0 0 6px">Tes points ${mood}</p>` + Object.keys(d).filter(k => d[k]).map(k => `<div><span>${lbl[k]}</span><b>+${d[k]}</b></div>`).join("") + `<p class="hint" style="margin-top:8px">Les points récompensent ta participation et les irritants réglés. Jamais la vitesse.</p>`;
+  $("#fileName").textContent = "Fichiers : " + fileBase() + ".json + .csv";
+  $("#sendHint").textContent = (navigator.canShare ? "Le bouton ouvre le partage de ton téléphone : choisis la messagerie (mail, Teams, WhatsApp…) et envoie à ton référent." : "Les 2 fichiers se téléchargent, puis ton mail s'ouvre : joins-les et envoie à ton référent.");
+  $("#sentMsg").classList.toggle("on", !!S.envoye);
+  $("#loopEnd").innerHTML = loopHTML(false);
+  setTimeout(() => confetti(), 250);
+}
+
+/* ============================================================ EFFETS */
+const fx = $("#fx"), ctx = fx.getContext("2d"); let parts = [], raf = null;
+function sizeFx(){ fx.width = innerWidth * devicePixelRatio; fx.height = innerHeight * devicePixelRatio; }
+addEventListener("resize", sizeFx); sizeFx();
+const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+function burst(x, y, n, cols){ if (reduced || !x) return; for (let i = 0; i < n; i++) { const a = Math.random()*Math.PI*2, v = 2 + Math.random()*5; parts.push({x, y, vx:Math.cos(a)*v, vy:Math.sin(a)*v - 3, c:cols[i % cols.length], s:4 + Math.random()*5, r:Math.random()*6, life:60 + Math.random()*30}); } if (!raf) raf = requestAnimationFrame(tick); }
+function confetti(){ const c = ["#6AA738","#3B6020","#F2B705","#CDE8B2","#E86F4C","#5B4B8A"]; for (let k = 0; k < 4; k++) setTimeout(() => burst(innerWidth * (.15 + .7*Math.random()), innerHeight * .3, 40, c), k * 180); }
+function tick(){
+  ctx.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0); ctx.clearRect(0, 0, innerWidth, innerHeight);
+  parts = parts.filter(p => p.life-- > 0);
+  for (const p of parts) { p.vy += .18; p.vx *= .99; p.x += p.vx; p.y += p.vy; p.r += .2; ctx.save(); ctx.translate(p.x, p.y); ctx.rotate(p.r); ctx.globalAlpha = Math.min(1, p.life / 30); ctx.fillStyle = p.c; ctx.fillRect(-p.s/2, -p.s/4, p.s, p.s/2); ctx.restore(); }
+  raf = parts.length ? requestAnimationFrame(tick) : (ctx.clearRect(0,0,innerWidth,innerHeight), null);
+}
+
+/* ============================================================ DÉMARRAGE */
+go(S.envoye ? 8 : Math.min(S.step || 0, 7));
+</script>
+</body>
+</html>
